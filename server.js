@@ -9,6 +9,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json());
 
+//set up API routes
+//API route to read db.json in db file and returns saved notes as json
+app.get("/api/notes", (req, res) => {
+    fs.readFile("db/db.json", "utf8", (err,data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        res.json(JSON.parse(data));
+    });
+});
 
 
 //write function to create new notes
