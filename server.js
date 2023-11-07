@@ -1,8 +1,12 @@
 const fs = require("fs");
 const path = require("path");
 const express = require("express");
+const { v4: uuidv4 } = require("uuid");
 const app = express();
 const PORT = 3001;
+
+//initialize an array to store notes
+const allNotes = [];
 
 //setting up middleware 
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +27,25 @@ app.get("/api/notes", (req, res) => {
 
 
 //write function to create new notes
+function writeNote(body, notesArray) {
+    const newNote = {
+        ...body,
+        id: uuidv4(),
+    };
+    notesArray.push(newNote);
+    fs.writeFileSync(
+        path.join(__dirname, "./db/db.json"),
+        JSON.stringify(notesArray, null, 2)
+    );
+    return newNote;
+}
 
+
+//post route to recieve new notes and save them
+app.post("/api/notes", (req, res) => {
+    const newNote = writeNote(req.body, allNotes);
+    res.json(newNote);
+})
 
 //set up DELETE route
 //write function to delete notes
