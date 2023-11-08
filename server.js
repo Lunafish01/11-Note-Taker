@@ -27,28 +27,40 @@ app.get("/api/notes", (req, res) => {
 
 
 //write function to create new notes
-function writeNote(body, notesArray) {
+function writeNote(body, notesArr) {
     const newNote = {
         ...body,
         id: uuidv4(),
     };
-    notesArray.push(newNote);
+    notesArr.push(newNote);
     fs.writeFileSync(
         path.join(__dirname, "./db/db.json"),
-        JSON.stringify(notesArray, null, 2)
+        JSON.stringify(notesArr, null, 2)
     );
     return newNote;
 }
-
 
 //post route to recieve new notes and save them
 app.post("/api/notes", (req, res) => {
     const newNote = writeNote(req.body, allNotes);
     res.json(newNote);
-})
+});
 
 //set up DELETE route
 //write function to delete notes
+// function deleteNote(id, notesArr) {
+//     const deletedNote = notesArr.filter((note) => note.id !== id);
+//     fs.writeFileSync(
+//         path.join(__dirname, "./db/db.json"),
+//         JSON.stringify(deleteNote, null , 2)
+//     );
+//     return deleteNote;
+// }
+
+// app.delete("/api/notes", (req, res) => {
+//     const deletedNote = deleteNote(req.params.id, allNotes);
+//     res.json(deleteNote);
+// });
 
 
 //set up HTML routes
