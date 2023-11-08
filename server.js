@@ -48,19 +48,18 @@ app.post("/api/notes", (req, res) => {
 
 //set up DELETE route
 //write function to delete notes
-//was not able to figure out how to get the delete function to work correctly
-function deleteNote(id, notesArr) {
-    const deletedNote = notesArr.filter((note) => note.id !== id);
+function deleteNotes(id, notesArr) {
+    const clearNote = notesArr.filter((note) => note.id !== id);
     fs.writeFileSync(
         path.join(__dirname, "./db/db.json"),
-        JSON.stringify(deletedNote, null , 2)
+        JSON.stringify(clearNote, null , 2)
     );
-    return deletedNote;
+    return clearNote;
 }
 
 app.delete("/api/notes/:id", (req, res) => {
-    const deletedNote = deleteNote(req.params.id, allNotes);
-    res.json(deletedNote);
+    const clearNote = deleteNotes(req.params.id, allNotes);
+    res.json(clearNote);
 });
 
 
