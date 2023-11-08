@@ -24,11 +24,11 @@ Run application by entering the following command in the intergrated CLI:
 
 ## Technologies
 
-* Express
-* Nodemon
-* uuid 
-* Insomnia
-* Heroku
+* [Express](https://expressjs.com/)
+* [Nodemon](https://www.npmjs.com/package/nodemon)
+* [uuid](https://www.npmjs.com/package/uuid) 
+* [Insomnia](https://insomnia.rest/)
+* [Heroku](https://devcenter.heroku.com/categories/nodejs-support)
 
 ## User Story
 
