@@ -10,7 +10,8 @@
 * [Screen shot](#screen-shot)
 
 ## Installation
-To install the dependencies for this application use "npm i [package name]".
+
+Install the dependencies for this application use "npm i [package name]".
 installed the following packages:
 - express
 - nodemon
