@@ -3,7 +3,7 @@
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [License](#license)
+* [Technologies](#technologies)
 * [User Story](#user-story)
 * [Acceptance Criteria](#acceptance-criteria)
 * [Link to Deployed Application](#link-to-deployed-application)
@@ -21,9 +21,13 @@ installed the following packages:
 Run application by entering the following command in the intergrated CLI:
 "node server.js"
 
-## License
+## Technologies
 
-No license
+* Express
+* Nodemon
+* uuid 
+* Insomnia
+* Heroku
 
 ## User Story
 
