@@ -3,7 +3,7 @@ const path = require("path");
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 //initialize an array to store notes
 const allNotes = [];
